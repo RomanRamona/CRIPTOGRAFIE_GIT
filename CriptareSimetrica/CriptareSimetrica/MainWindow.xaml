@@ -1,0 +1,48 @@
+﻿<Window x:Class="CryptoApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="File Encryptor" Height="587" Width="896" Background="#F5F5F5">
+    <StackPanel Margin="20">
+        <HeaderedContentControl Header="Input File">
+            <DockPanel Margin="0,5,0,15">
+                <Button Content="Browse" Click="Browse_Click" Width="80" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+                <TextBox x:Name="txtFilePath" IsReadOnly="True" VerticalContentAlignment="Center"/>
+            </DockPanel>
+        </HeaderedContentControl>
+
+        <UniformGrid Columns="2" Margin="0,0,0,10">
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Algoritm:"/>
+                <ComboBox x:Name="cbAlgorithm" Margin="0,5"/>
+
+                <TextBlock Text="Mod de operare:"/>
+                <ComboBox x:Name="cbMode" Margin="0,5"/>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBlock Text="Padding:"/>
+                <ComboBox x:Name="cbPadding" Margin="0,5"/>
+            </StackPanel>
+        </UniformGrid>
+
+        <TextBlock Text="Key (Base64 sau Parolă):"/>
+        <DockPanel Margin="0,5,0,10">
+            <Button Content="Generate" Click="GenerateKey_Click" Width="80" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+            <TextBox x:Name="txtKey" VerticalContentAlignment="Center"/>
+        </DockPanel>
+
+        <TextBlock Text="IV (Initialization Vector):"/>
+        <DockPanel Margin="0,5,0,20">
+            <Button Content="Generate" Click="GenerateIV_Click" Width="80" DockPanel.Dock="Right" Margin="5,0,0,0"/>
+            <TextBox x:Name="txtIV" VerticalContentAlignment="Center"/>
+        </DockPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnEncrypt" Content="Encrypt" Width="120" Height="40" Margin="10" Click="Process_Click"/>
+            <Button x:Name="btnDecrypt" Content="Decrypt" Width="120" Height="40" Margin="10" Click="Process_Click"/>
+        </StackPanel>
+
+        <ProgressBar x:Name="progressBar" Height="15" IsIndeterminate="False" Visibility="Hidden"/>
+        <TextBlock x:Name="lblStatus" HorizontalAlignment="Center" Margin="5"/>
+    </StackPanel>
+</Window>
