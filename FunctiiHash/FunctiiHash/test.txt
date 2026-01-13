@@ -1,0 +1,1 @@
+﻿Salut! Acesta este un fisier de test pentru aplicatia de hash.
